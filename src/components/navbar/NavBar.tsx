@@ -1,11 +1,39 @@
+import { ReactNode } from "react"
+import { Link } from "react-router-dom"
+
 export function NavBar() {
     return (
         <div className="w-56 border border-r-2 h-full">
-            <h1 className="text-lg font-bold p-2">Automatic Batching</h1>
-            <h1 className="text-lg font-bold p-2">Concurrent Rendering</h1>
-            <h1 className="text-lg font-bold p-2">SSR With Suspense</h1>
-            <h1 className="text-lg font-bold p-2">Server Components</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to={'/batching'}>
+                            <NavText>Automatic Batching</NavText>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={'/concurrent'}>
+                            <NavText>Concurrent Rendering</NavText>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={'/ssr'}>
+                            <NavText>SSR With Suspense</NavText>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={'/server'}>
+                            <NavText>Server Components</NavText>
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
+        </div >
+    )
+}
 
-        </div>
+function NavText({ children }: { children: ReactNode }) {
+    return (
+        <h1 className="text-lg font-bold p-2">{children}</h1>
     )
 }
