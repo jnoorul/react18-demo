@@ -1,25 +1,18 @@
-import React from 'react';
-// import ReactDOM from 'react-dom/client';
+/* eslint-disable */
+
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ReactDOM from 'react-dom';
+import { render as render17Mode } from 'react-dom';
 
-// const root = ReactDOM.createRoot(
-//   document.getElementById('root') as HTMLElement
-// );
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+//@ts-ignore
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
 );
+
+// root.render(<App />);
+render17Mode(<App />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

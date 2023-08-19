@@ -6,9 +6,14 @@ export function Batching() {
   const [numberOfRows, setNumberOfRows] = useState(5);
   const loadMore = () => {
     setTimeout(() => {
-      setPageNumber(pageNumber + 1);
-      setNumberOfRows(pageNumber * 5);
-    }, 10);
+      setPageNumber((pageNumber) => pageNumber + 1);
+      setNumberOfRows((numberOfRows) => numberOfRows + 5);
+    }, 100);
+  };
+
+  const reset = () => {
+    setPageNumber(1);
+    setNumberOfRows(5);
   };
 
   return (
@@ -20,10 +25,16 @@ export function Batching() {
       >
         Load more...
       </button>
+      <button
+        className="border border-red-800 p-2 rounded-md m-4"
+        onClick={() => reset()}
+      >
+        Reset
+      </button>
       <h3>{`Current Page: ${pageNumber}`}</h3>
       <h3>{`Number of Rows: ${numberOfRows}`}</h3>
-      {[...Array(pageNumber).keys()].map(() => (
-        <CardList />
+      {[...Array(pageNumber).keys()].map((rowId) => (
+        <CardList key={rowId} />
       ))}
     </div>
   );
@@ -31,6 +42,6 @@ export function Batching() {
 
 function ExpensiveComponent() {
   console.log('Rendering...');
-  for (let i = 0; i < 1000000000; i++) {}
+  for (let i = 0; i < 100000000; i++) {}
   return null;
 }
