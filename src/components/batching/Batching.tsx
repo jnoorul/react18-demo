@@ -18,7 +18,6 @@ export function Batching() {
 
   return (
     <div className="m-6">
-      <ExpensiveComponent />
       <button
         className="border border-red-800 p-2 rounded-md m-4"
         onClick={() => loadMore()}
@@ -36,10 +35,4 @@ export function Batching() {
       <CardList noOfCards={numberOfRows} />
     </div>
   );
-}
-
-function ExpensiveComponent() {
-  console.log('Rendering...');
-  for (let i = 0; i < 100000000; i++) {}
-  return null;
 }
