@@ -33,9 +33,7 @@ export function Batching() {
       </button>
       <h3>{`Current Page: ${pageNumber}`}</h3>
       <h3>{`Number of Rows: ${numberOfRows}`}</h3>
-      {[...Array(pageNumber).keys()].map((rowId) => (
-        <CardList key={rowId} />
-      ))}
+      <CardList noOfCards={numberOfRows} />
     </div>
   );
 }
