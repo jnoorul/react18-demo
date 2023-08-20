@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CardList } from './CardList';
+import { SearchResults } from './SearchResults';
 
 export function Batching() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -32,7 +32,7 @@ export function Batching() {
       </button>
       <h3>{`Current Page: ${pageNumber}`}</h3>
       <h3>{`Number of Rows: ${numberOfRows}`}</h3>
-      <CardList noOfCards={numberOfRows} />
+      <SearchResults searchTerm={'Credit Suisse'} />
     </div>
   );
 }
