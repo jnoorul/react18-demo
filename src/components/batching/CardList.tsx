@@ -62,6 +62,9 @@ export const CardList = memo(function CardList({
   return (
     <>
       <ExpensiveComponent />
+      {[...Array(5).keys()].map((_, index) => (
+        <ExpensiveComponent key={index} />
+      ))}
       <ul className="divide-y divide-gray-100 overflow-hidden bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl">
         {[...Array(noOfCards).keys()].map((_, index) => {
           const person = people[index % 5];
