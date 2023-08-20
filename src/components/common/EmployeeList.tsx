@@ -9,7 +9,7 @@ interface EmployeeListProps {
 export function EmployeeList({ employees }: EmployeeListProps) {
   return (
     <div>
-      {[...Array(3).keys()].map((_, index) => (
+      {[...Array(5).keys()].map((_, index) => (
         <ExpensiveComponent key={index} />
       ))}
       <ul className="divide-y divide-gray-100 overflow-hidden bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl">

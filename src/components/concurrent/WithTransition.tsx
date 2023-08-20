@@ -2,14 +2,14 @@ import { ChangeEvent, useState, useTransition } from 'react';
 import { SearchResults } from '../batching/SearchResults';
 import { Section } from '../common/Section';
 
-export function ConcurrentWithTransition() {
+export function WithTransition() {
   const [isPending, startTransition] = useTransition();
   const [searchText, setSearchText] = useState('');
 
   function onSearch(event: ChangeEvent<HTMLInputElement>) {
     const newSearchText = event.currentTarget.value;
-    startTransition(() => setSearchText(newSearchText));
-    // setSearchText(newSearchText);
+    // startTransition(() => setSearchText(newSearchText));
+    setSearchText(newSearchText);
   }
 
   return (

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ButtonGroup, { ButtonOption } from '../common/ButtonGroup';
-import { ConcurrentWithTransition } from './ConcurrentWithTransition';
+import { WithTransition } from './WithTransition';
 
 export type TabName = 'useTransition' | 'useDeferred';
 
@@ -24,7 +24,7 @@ export function Concurrent() {
         onSelect={(value: TabName) => setActiveTab(value)}
         activeTab={activeTab}
       />
-      {activeTab === 'useTransition' && <ConcurrentWithTransition />}
+      {activeTab === 'useTransition' && <WithTransition />}
     </div>
   );
 }
