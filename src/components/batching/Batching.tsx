@@ -17,21 +17,25 @@ export function Batching() {
   };
 
   return (
-    <div className="m-6">
-      <button
-        className="border border-red-800 p-2 rounded-md m-4"
-        onClick={() => loadMore()}
-      >
-        Load more...
-      </button>
-      <button
-        className="border border-red-800 p-2 rounded-md m-4"
-        onClick={() => reset()}
-      >
-        Reset
-      </button>
-      <h3>{`Current Page: ${pageNumber}`}</h3>
-      <h3>{`Number of Rows: ${numberOfRows}`}</h3>
+    <div>
+      <div className="flex flex-row my-8">
+        <button
+          className="border border-red-600 p-2 rounded-sm"
+          onClick={() => loadMore()}
+        >
+          Load more...
+        </button>
+        <button
+          className="border border-red-600 p-2 rounded-sm ml-4"
+          onClick={() => reset()}
+        >
+          Reset
+        </button>
+        <div className="ml-6">
+          <p className="text-red-500 font-bold text-sm">{`Current Page: ${pageNumber}`}</p>
+          <p className="text-red-500 font-bold text-sm">{`Number of Rows: ${numberOfRows}`}</p>
+        </div>
+      </div>
       <SearchResults searchTerm={'Credit Suisse'} />
     </div>
   );
