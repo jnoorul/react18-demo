@@ -4,29 +4,33 @@ import {
   CloudArrowDownIcon,
   ServerStackIcon,
 } from '@heroicons/react/20/solid';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const tabs = [
-  { name: 'Batching', href: '/batching', icon: Cog6ToothIcon, current: false },
-  {
-    name: 'Concurrent',
-    href: '/concurrent',
-    icon: ArrowPathIcon,
-    current: false,
-  },
-  { name: 'SSR', href: 'ssr', icon: CloudArrowDownIcon, current: true },
-  {
-    name: 'Server Components',
-    href: '/server',
-    icon: ServerStackIcon,
-    current: false,
-  },
+  { name: 'Batching', href: '/batching', icon: Cog6ToothIcon },
+  { name: 'Concurrent', href: '/concurrent', icon: ArrowPathIcon },
+  { name: 'SSR', href: '/ssr', icon: CloudArrowDownIcon },
+  { name: 'Server Components', href: '/server', icon: ServerStackIcon },
 ];
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
+export function MenuBar() {
+  const navigate = useNavigate();
+  const [activeMenu, setActiveMenu] = useState(tabs[0].href);
+
+  function handleMenuChange(
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) {
+    const newPath = event.currentTarget.pathname;
+    setActiveMenu(newPath);
+    navigate(newPath);
+    event.preventDefault();
+  }
+
   return (
     <div>
       <div className="sm:hidden">
@@ -35,7 +39,7 @@ export default function Example() {
           id="tabs"
           name="tabs"
           className="block w-full rounded-md border-gray-300 focus:border-red-600 focus:ring-indigo-600"
-          defaultValue={tabs.find((tab) => tab.current)?.name}
+          defaultValue={tabs[0].name}
         >
           {tabs.map((tab) => (
             <option key={tab.name}>{tab.name}</option>
@@ -49,17 +53,17 @@ export default function Example() {
               <a
                 key={tab.name}
                 href={tab.href}
+                onClick={handleMenuChange}
                 className={classNames(
-                  tab.current
+                  activeMenu === tab.href
                     ? 'border-red-600 text-red-600'
                     : 'border-transparent text-gray-600 hover:border-gray-300 hover:text-gray-700',
                   'group inline-flex items-center border-b-2 py-4 text-sm font-medium'
                 )}
-                aria-current={tab.current ? 'page' : undefined}
               >
                 <tab.icon
                   className={classNames(
-                    tab.current
+                    activeMenu === tab.href
                       ? 'text-red-600'
                       : 'text-gray-400 group-hover:text-gray-600',
                     '-ml-0.5 mr-2 h-5 w-5'

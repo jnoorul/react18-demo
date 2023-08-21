@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Header } from '../header/Header';
-import MenuBar from '../navbar/MenuBar';
+import { MenuBar } from '../navbar/MenuBar';
 
 export function Layout() {
   return (
