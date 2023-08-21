@@ -34,7 +34,7 @@ export default function Example() {
         <select
           id="tabs"
           name="tabs"
-          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          className="block w-full rounded-md border-gray-300 focus:border-red-600 focus:ring-indigo-600"
           defaultValue={tabs.find((tab) => tab.current)?.name}
         >
           {tabs.map((tab) => (
@@ -51,8 +51,8 @@ export default function Example() {
                 href={tab.href}
                 className={classNames(
                   tab.current
-                    ? 'border-indigo-500 text-indigo-600'
-                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                    ? 'border-red-600 text-red-600'
+                    : 'border-transparent text-gray-600 hover:border-gray-300 hover:text-gray-700',
                   'group inline-flex items-center border-b-2 py-4 text-sm font-medium'
                 )}
                 aria-current={tab.current ? 'page' : undefined}
@@ -60,8 +60,8 @@ export default function Example() {
                 <tab.icon
                   className={classNames(
                     tab.current
-                      ? 'text-indigo-500'
-                      : 'text-gray-400 group-hover:text-gray-500',
+                      ? 'text-red-600'
+                      : 'text-gray-400 group-hover:text-gray-600',
                     '-ml-0.5 mr-2 h-5 w-5'
                   )}
                   aria-hidden="true"
