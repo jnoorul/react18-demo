@@ -19,7 +19,7 @@ export function Concurrent() {
   ];
 
   return (
-    <div>
+    <div className="my-8">
       <ButtonGroup
         options={options}
         onSelect={(value: TabName) => setActiveTab(value)}

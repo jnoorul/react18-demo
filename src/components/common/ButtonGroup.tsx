@@ -20,7 +20,7 @@ export default function ButtonGroup({
     'relative items-center px-3 py-2 text-sm font-semibold text-white';
 
   return (
-    <span className="my-6 mx-10 items-center isolate inline-flex rounded-md shadow-sm border-0 00">
+    <span className="items-center isolate inline-flex rounded-md shadow-sm border-0 00">
       {options.map((option) => (
         <button
           type="button"

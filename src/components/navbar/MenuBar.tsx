@@ -1,15 +1,25 @@
 import {
-  BuildingOfficeIcon,
-  CreditCardIcon,
-  UserIcon,
-  UsersIcon,
+  ArrowPathIcon,
+  Cog6ToothIcon,
+  CloudArrowDownIcon,
+  ServerStackIcon,
 } from '@heroicons/react/20/solid';
 
 const tabs = [
-  { name: 'My Account', href: '#', icon: UserIcon, current: false },
-  { name: 'Company', href: '#', icon: BuildingOfficeIcon, current: false },
-  { name: 'Team Members', href: '#', icon: UsersIcon, current: true },
-  { name: 'Billing', href: '#', icon: CreditCardIcon, current: false },
+  { name: 'Batching', href: '/batching', icon: Cog6ToothIcon, current: false },
+  {
+    name: 'Concurrent',
+    href: '/concurrent',
+    icon: ArrowPathIcon,
+    current: false,
+  },
+  { name: 'SSR', href: 'ssr', icon: CloudArrowDownIcon, current: true },
+  {
+    name: 'Server Components',
+    href: '/server',
+    icon: ServerStackIcon,
+    current: false,
+  },
 ];
 
 function classNames(...classes: string[]) {
@@ -34,7 +44,7 @@ export default function Example() {
       </div>
       <div className="hidden sm:block">
         <div className="border-b border-gray-200">
-          <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+          <nav className="-mb-px ml-12 flex space-x-8" aria-label="Tabs">
             {tabs.map((tab) => (
               <a
                 key={tab.name}
@@ -43,7 +53,7 @@ export default function Example() {
                   tab.current
                     ? 'border-indigo-500 text-indigo-600'
                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                  'group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium'
+                  'group inline-flex items-center border-b-2 py-4 text-sm font-medium'
                 )}
                 aria-current={tab.current ? 'page' : undefined}
               >

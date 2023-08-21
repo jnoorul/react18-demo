@@ -13,7 +13,7 @@ export function WithTransition() {
   }
 
   return (
-    <div className="m-8">
+    <div className="mt-8">
       <input
         type="text"
         id="search"
