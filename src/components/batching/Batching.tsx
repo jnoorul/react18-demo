@@ -1,19 +1,30 @@
 import { useState } from 'react';
-import { SearchResults } from './SearchResults';
+import { EmployeeCard } from '../common/Employee';
+import { Employee, getEmployees } from '../../api/employee-search';
+import { ExpensiveComponent } from '../common/ExpensiveComponent';
+
+const PAGE_SIZE = 5;
 
 export function Batching() {
   const [pageNumber, setPageNumber] = useState(1);
-  const [numberOfRows, setNumberOfRows] = useState(5);
+  const [numberOfRows, setNumberOfRows] = useState(pageNumber * PAGE_SIZE);
+  const [employees, setEmployees] = useState<Employee[]>(
+    getEmployees(pageNumber * PAGE_SIZE)
+  );
   const loadMore = () => {
     setTimeout(() => {
-      setPageNumber((pageNumber) => pageNumber + 1);
-      setNumberOfRows((numberOfRows) => numberOfRows + 5);
+      const newPageNumber = pageNumber + 1;
+      setPageNumber(newPageNumber);
+      setNumberOfRows(newPageNumber * PAGE_SIZE); // Bad practice, just for explaining batching.
+      setEmployees(getEmployees(newPageNumber * PAGE_SIZE));
     }, 100);
   };
 
   const reset = () => {
-    setPageNumber(1);
-    setNumberOfRows(5);
+    const firstPageNumber = 1;
+    setPageNumber(firstPageNumber);
+    setNumberOfRows(firstPageNumber * PAGE_SIZE);
+    setEmployees(getEmployees(firstPageNumber * PAGE_SIZE));
   };
 
   return (
@@ -36,7 +47,10 @@ export function Batching() {
           <p className="text-red-500 font-bold text-sm">{`Number of Rows: ${numberOfRows}`}</p>
         </div>
       </div>
-      <SearchResults searchTerm={'Credit Suisse'} />
+      <ExpensiveComponent />
+      {employees.map((employee, index) => (
+        <EmployeeCard key={index} employee={employee} />
+      ))}
     </div>
   );
 }

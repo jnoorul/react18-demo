@@ -62,3 +62,10 @@ export function searchEmployees(searchTerm: string) {
   });
   return searchResults;
 }
+
+export function getEmployees(count: number) {
+  const emplyeeResults = [...Array(count).keys()].map((key) => {
+    return { ...employees[key % 5], id: key };
+  });
+  return emplyeeResults;
+}
