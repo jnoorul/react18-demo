@@ -23,6 +23,7 @@ export default function ButtonGroup({
     <span className="items-center isolate inline-flex rounded-md shadow-sm border-0 00">
       {options.map((option) => (
         <button
+          key={option.value}
           type="button"
           className={`${baseClassNames} ${
             option.value === activeTab ? 'bg-red-600' : 'bg-gray-600'

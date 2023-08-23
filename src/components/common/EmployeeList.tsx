@@ -13,8 +13,8 @@ export function EmployeeList({ employees }: EmployeeListProps) {
         <ExpensiveComponent key={index} />
       ))}
       <ul className="divide-y divide-gray-100 overflow-hidden bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl">
-        {employees.map((employee) => (
-          <EmployeeCard employee={employee} />
+        {employees.map((employee, index) => (
+          <EmployeeCard key={index} employee={employee} />
         ))}
       </ul>
     </div>
