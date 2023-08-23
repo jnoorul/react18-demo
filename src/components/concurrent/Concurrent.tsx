@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ButtonGroup, { ButtonOption } from '../common/ButtonGroup';
 import { WithTransition } from './WithTransition';
 import { WithDeferred } from './WithDeferred';
+import { FakeLoader } from '../common/FakeLoader';
 
 export type TabName = 'useTransition' | 'useDeferred';
 
@@ -25,8 +26,10 @@ export function Concurrent() {
         onSelect={(value: TabName) => setActiveTab(value)}
         activeTab={activeTab}
       />
-      {activeTab === 'useTransition' && <WithTransition />}
-      {activeTab === 'useDeferred' && <WithDeferred />}
+      <FakeLoader tabName={activeTab}>
+        {activeTab === 'useTransition' && <WithTransition />}
+        {activeTab === 'useDeferred' && <WithDeferred />}
+      </FakeLoader>
     </div>
   );
 }
