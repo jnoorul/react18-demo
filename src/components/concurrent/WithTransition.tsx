@@ -1,6 +1,7 @@
 import { ChangeEvent, useState, useTransition } from 'react';
 import { SearchResults } from '../batching/SearchResults';
-import { Section } from '../common/Section';
+import { Loader } from '../common/Loader';
+import { FakeLoader } from '../common/FakeLoader';
 
 export function WithTransition() {
   const [isPending, startTransition] = useTransition();
@@ -14,6 +15,7 @@ export function WithTransition() {
 
   return (
     <div className="mt-8">
+      <FakeLoader />
       <input
         type="text"
         id="search"
@@ -21,9 +23,8 @@ export function WithTransition() {
         placeholder="Search Person"
         onChange={onSearch}
       />
-      <Section isLoading={isPending}>
-        <SearchResults searchTerm={searchText} />
-      </Section>
+      <Loader isLoading={isPending} />
+      <SearchResults searchTerm={searchText} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import {
   ArrowPathIcon,
   Cog6ToothIcon,
-  CloudArrowDownIcon,
+  ArrowPathRoundedSquareIcon,
   ServerStackIcon,
 } from '@heroicons/react/20/solid';
 import { useState } from 'react';
@@ -9,9 +9,13 @@ import { useNavigate } from 'react-router-dom';
 
 const tabs = [
   { name: 'Batching', href: '/batching', icon: Cog6ToothIcon },
-  { name: 'Concurrent', href: '/concurrent', icon: ArrowPathIcon },
-  { name: 'SSR', href: '/ssr', icon: CloudArrowDownIcon },
-  { name: 'Server Components', href: '/server', icon: ServerStackIcon },
+  { name: 'Use Transition', href: '/transition', icon: ArrowPathIcon },
+  {
+    name: 'Use Deferred',
+    href: '/deferred',
+    icon: ArrowPathRoundedSquareIcon,
+  },
+  { name: 'SSR / Server Components', href: '/server', icon: ServerStackIcon },
 ];
 
 function classNames(...classes: string[]) {

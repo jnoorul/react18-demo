@@ -1,5 +1,4 @@
-import { TabName } from '../concurrent/Concurrent';
-
+export type TabName = 'useTransition' | 'useDeferred';
 export interface ButtonOption {
   label: string;
   value: TabName;

@@ -1,18 +1,13 @@
-import { ReactNode, useEffect, useState } from 'react';
-import { Section } from './Section';
+import { useEffect, useState } from 'react';
+import { Loader } from './Loader';
 
-interface FakeLoaderProps {
-  children: ReactNode;
-  tabName: string;
-}
-
-export function FakeLoader({ children, tabName }: FakeLoaderProps) {
+export function FakeLoader() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => setIsLoading(false), 1000);
-  }, [tabName]);
+  }, []);
 
-  return <Section isLoading={isLoading}>{children}</Section>;
+  return <Loader isLoading={isLoading} />;
 }

@@ -1,6 +1,7 @@
 import { ChangeEvent, memo, useDeferredValue, useState } from 'react';
 import { SearchResults } from '../batching/SearchResults';
-import { Section } from '../common/Section';
+import { Loader } from '../common/Loader';
+import { FakeLoader } from '../common/FakeLoader';
 
 const SearchResultsWithMemo = memo(SearchResults);
 
@@ -15,6 +16,7 @@ export function WithDeferred() {
 
   return (
     <div className="mt-8">
+      <FakeLoader />
       <input
         type="text"
         id="search"
@@ -22,10 +24,9 @@ export function WithDeferred() {
         placeholder="Search Person"
         onChange={onSearch}
       />
-      <Section isLoading={deferredSearchText !== searchText}>
-        {/* <SearchResultsWithMemo searchTerm={searchText} /> */}
-        <SearchResultsWithMemo searchTerm={deferredSearchText} />
-      </Section>
+      <Loader isLoading={deferredSearchText !== searchText} />
+      {/* <SearchResultsWithMemo searchTerm={searchText} /> */}
+      <SearchResultsWithMemo searchTerm={deferredSearchText} />
     </div>
   );
 }
