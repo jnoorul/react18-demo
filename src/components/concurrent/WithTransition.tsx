@@ -1,7 +1,9 @@
-import { ChangeEvent, useState, useTransition } from 'react';
+import { ChangeEvent, memo, useState, useTransition } from 'react';
 import { SearchResults } from '../batching/SearchResults';
 import { Loader } from '../common/Loader';
 import { FakeLoader } from '../common/FakeLoader';
+
+const SearchResultsWithMemo = memo(SearchResults);
 
 export function WithTransition() {
   const [isPending, startTransition] = useTransition();
@@ -9,8 +11,8 @@ export function WithTransition() {
 
   function onSearch(event: ChangeEvent<HTMLInputElement>) {
     const newSearchText = event.currentTarget.value;
-    // startTransition(() => setSearchText(newSearchText));
-    setSearchText(newSearchText);
+    startTransition(() => setSearchText(newSearchText));
+    // setSearchText(newSearchText);
   }
 
   return (
@@ -24,7 +26,7 @@ export function WithTransition() {
         onChange={onSearch}
       />
       <Loader isLoading={isPending} />
-      <SearchResults searchTerm={searchText} />
+      <SearchResultsWithMemo searchTerm={searchText} />
     </div>
   );
 }
