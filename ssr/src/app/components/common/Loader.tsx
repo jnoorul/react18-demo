@@ -1,14 +1,10 @@
-import { ReactNode } from 'react';
-
-interface SectionProps {
-  children: ReactNode;
+interface LoaderProps {
   isLoading?: boolean;
 }
 
-export function Section({ children, isLoading = false }: SectionProps) {
+export function Loader({ isLoading = false }: LoaderProps) {
   return (
     <div className="relative items-center block max-w-28 bg-white">
-      {children}
       {isLoading && (
         <div
           role="status"

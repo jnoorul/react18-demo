@@ -1,12 +1,21 @@
 'use client';
 
-import { ArrowPathIcon, Cog6ToothIcon } from '@heroicons/react/20/solid';
+import {
+  ArrowPathIcon,
+  Cog6ToothIcon,
+  ArrowPathRoundedSquareIcon,
+} from '@heroicons/react/20/solid';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const tabs = [
   { name: 'Batching', href: '/batching', icon: Cog6ToothIcon },
-  { name: 'Concurrent', href: '/concurrent', icon: ArrowPathIcon },
+  { name: 'Use Transition', href: '/transition', icon: ArrowPathIcon },
+  {
+    name: 'Use Deferred',
+    href: '/deferred',
+    icon: ArrowPathRoundedSquareIcon,
+  },
 ];
 
 function classNames(...classes: string[]) {
