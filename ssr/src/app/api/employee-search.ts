@@ -54,13 +54,16 @@ const employees: Employee[] = [
   },
 ];
 
-export function searchEmployees(searchTerm: string) {
+export async function searchEmployees(searchTerm: string) {
   let noOfResults = 21 - searchTerm.length * 2;
   noOfResults = noOfResults > 0 ? noOfResults : 2;
   const searchResults = [...Array(noOfResults).keys()].map((key) => {
     return { ...employees[key % 5], id: key };
   });
-  return searchResults;
+
+  return new Promise<Employee[]>((resolve, reject) => {
+    setTimeout(() => resolve(searchResults), 2000);
+  });
 }
 
 export function getEmployees(count: number) {

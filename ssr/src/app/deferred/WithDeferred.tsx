@@ -16,7 +16,6 @@ export function WithDeferred() {
 
   return (
     <div className="mt-8">
-      <FakeLoader />
       <input
         type="text"
         id="search"

@@ -5,7 +5,7 @@ interface SearchResultsProps {
   searchTerm: string;
 }
 
-export function SearchResults({ searchTerm }: SearchResultsProps) {
-  const searchResults = searchEmployees(searchTerm);
+export async function SearchResults({ searchTerm }: SearchResultsProps) {
+  const searchResults = await searchEmployees(searchTerm);
   return <EmployeeList employees={searchResults} />;
 }

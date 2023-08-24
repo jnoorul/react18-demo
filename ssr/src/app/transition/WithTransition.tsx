@@ -15,7 +15,6 @@ export function WithTransition() {
 
   return (
     <div className="mt-8">
-      <FakeLoader />
       <input
         type="text"
         id="search"
