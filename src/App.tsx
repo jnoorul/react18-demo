@@ -4,6 +4,7 @@ import { PageNotFound } from './components/layout/PageNotFound';
 import { Batching } from './components/batching/Batching';
 import { WithTransition } from './components/concurrent/WithTransition';
 import { WithDeferred } from './components/concurrent/WithDeferred';
+import { LaunchServerRenderedApp } from './components/server-rendered/LaunchServerRenderedApp';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="batching" element={<Batching />} />
           <Route path="transition" element={<WithTransition />} />
           <Route path="deferred" element={<WithDeferred />} />
+          <Route path="server" element={<LaunchServerRenderedApp />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
